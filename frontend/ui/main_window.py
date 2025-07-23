@@ -24,9 +24,15 @@ class MainWindow(tk.Tk):
         super().__init__()
         self._controller = controller
         self.title("Currency Converter")
-        self.geometry("360x600")
+        self.geometry("360x620")
         self.resizable(False, False)
         self.configure(bg="#f0f0f0")
+
+        # Set icon if available
+        try:
+            self.iconbitmap("assets/icon/currency-converter.ico")
+        except:
+            pass  # Icon not found, continue without it
 
         self.amount_entry = None
         self.result_entry = None
@@ -51,7 +57,7 @@ class MainWindow(tk.Tk):
         header_frame.pack(fill="x")
 
         try:
-            logo_img = Image.open("currency.png").resize((80, 80))
+            logo_img = Image.open("assets/images/currency.png").resize((80, 80))
             logo = ImageTk.PhotoImage(logo_img)
             logo_label = tk.Label(header_frame, image=logo, bg="#f0f0f0")
             logo_label.image = logo
@@ -80,7 +86,7 @@ class MainWindow(tk.Tk):
         self._currency_row(converter_frame, "To", 2)
 
         try:
-            swap_img = Image.open("switch.png").resize((32, 32))
+            swap_img = Image.open("assets/images/switch.png").resize((32, 32))
             swap_icon = ImageTk.PhotoImage(swap_img)
         except Exception:
             swap_icon = None
