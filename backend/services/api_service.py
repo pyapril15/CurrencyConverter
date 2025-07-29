@@ -3,7 +3,7 @@ import requests
 
 class CurrencyAPIService:
     BASE_URL = "http://api.currencylayer.com/"
-    ACCESS_KEY = "4273d2c37f738367f08780b934ce7dda"
+    ACCESS_KEY = "8e94aaf91fcf03463376934065298cbf"
 
     def get_conversion_rate(self, base: str, target: str) -> float:
         url = self.BASE_URL + "live"
